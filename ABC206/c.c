@@ -12,6 +12,7 @@ int cmp(const void *a, const void *b)
 int main(void)
 {
     int n, a[N_MAX];
+    bool isLastEqual = false;
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
     {
@@ -19,24 +20,27 @@ int main(void)
     }
     int ans;
     int equals = 1;
-    int equal_num = 0;
-    ans = n * (n - 1) / 2;
+    ans = ((n * (n - 1)) / 2);
     qsort(a, n, sizeof(int), cmp);
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
-        if (a[i] == a[i + 1])
+        if (a[i - 1] == a[i])
         {
             equals++;
+            isLastEqual = true;
         }
-        else if (a[i] != a[i + 1])
+        else if (a[i - 1] != a[i])
         {
-            int removabale = (equals - 1) * equals / 2;
-            ans = ans - removabale;
+            ans -= (((equals - 1) * equals) / 2);
             equals = 1;
+            isLastEqual = false;
         }
-
-        printf("%d", a[i]);
     }
-    printf("\n");
-    printf("%d", ans);
+    if (isLastEqual)
+    {
+        int removabale = ((equals - 1) * equals) / 2;
+        ans = ans - removabale;
+        equals = 1;
+    }
+    printf("%d\n", ans);
 }
