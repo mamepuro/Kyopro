@@ -30,7 +30,7 @@ int main()
             {
                 for (int k = 0; k < n; k++)
                 {
-                    X[k] = Xa[k] * cos((float)(k / 180) * std::numbers::pi_v<float>)
+                    X[k] = Xa[k] * cos((float)(k / 180) * std::numbers::pi_v<float>) - Ya[k]*sin((float)(k / 180) * std::numbers::pi_v<float>);
                 }
             }
         }
