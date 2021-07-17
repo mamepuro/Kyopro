@@ -40,16 +40,17 @@ int main()
         bc = c * log10(b);
     }
     if ((c % 2) == 1)
-    {
-        if (AisNegative)
+        a
         {
-            ac = ac * (-1);
+            if (AisNegative)
+            {
+                ac = ac * (-1);
+            }
+            if (Bisnegative)
+            {
+                bc = bc * (-1);
+            }
         }
-        if (Bisnegative)
-        {
-            bc = bc * (-1);
-        }
-    }
     if (ac > bc)
     {
         printf(">\n");
